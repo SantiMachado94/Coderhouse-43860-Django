@@ -1,0 +1,16 @@
+{% extends 'producto/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Crear/Actualizar Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Guardar</button>
+    </form>
+
+    <a href="{% url 'Home:home' %}">Ir al menú principal</a>
+{% endblock INDEX_CONTENIDO %}

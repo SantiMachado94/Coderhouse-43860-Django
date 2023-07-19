@@ -1,10 +1,14 @@
 {% extends 'Home/index.html' %}
 
 {% block INDEX_TITULO %} 
-    Categorías de Productos
+    Productos
 {% endblock INDEX_TITULO %}
 
 {% block INDEX_CONTENIDO %}
+    
+    <h3 class="pb-lg-3 ">
+        Categoría de productos
+    </h3>
     
     <div class="d-grid gap-3 ">  
         {% if user.is_staff %}
@@ -13,6 +17,21 @@
         {% endif %}
         <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary ">Listar Categorías de Productos</a>
         <br>
-        <a href="{% url 'Home:home' %}">Ir al menú principal</a>
     </div>
+    
+    <h3 class="pb-lg-3 ">
+        Productos
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'producto:producto_create' %}" class="btn btn-primary ">Crear Productos</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'producto:producto_list' %}" class="btn btn-primary ">Listar Productos</a>
+        <br>
+    </div>
+
+    
+    <a href="{% url 'Home:home' %}">Ir al menú principal</a>
 {% endblock INDEX_CONTENIDO %}

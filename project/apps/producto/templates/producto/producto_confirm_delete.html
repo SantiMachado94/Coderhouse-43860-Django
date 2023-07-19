@@ -1,0 +1,17 @@
+{% extends 'producto/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Eliminación de Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+
+    <p class="fs-5 fst-italic">¿Confirma eliminar "{{ object }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar</button>
+    </form>
+
+    <a href="{% url 'Home:home' %}">Ir al menú principal</a>
+{% endblock INDEX_CONTENIDO %}

@@ -22,12 +22,14 @@ from . import forms, models
 def index(request):
     return render(request, "producto/index.html")
 
+# ***** PRODUCTOCATEGORIA
 
 # list
 # def productocategoria_list(request):
 #     categorias = models.ProductoCategoria.objects.all()
 #     context = {"object_list": categorias}
 #     return render(request, "producto/productocategoria_list.html", context)
+
 
 class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
@@ -87,3 +89,30 @@ class ProductoCategoriaUpdate(UpdateView):
 class ProductoCategoriaDelete(DeleteView):
     model = models.ProductoCategoria
     success_url = reverse_lazy("producto:productocategoria_list")
+
+
+# ***** PRODUCTO
+
+class ProductoList(ListView):
+    model = models.Producto
+
+
+class ProductoCreate(CreateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+
+
+class ProductoDetail(DetailView):
+    model = models.Producto
+
+
+class ProductoUpdate(UpdateView):
+    model = models.Producto
+    form_class = forms.ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+
+
+class ProductoDelete(DeleteView):
+    model = models.Producto
+    success_url = reverse_lazy("producto:producto_list")

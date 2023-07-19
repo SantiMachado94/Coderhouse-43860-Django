@@ -1,0 +1,21 @@
+{% extends 'producto/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Detalle de Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <ul>
+        <li>Categoría: {{ object.categoria }} </li>
+        <li>Nombre: {{ object.nombre }} </li>
+        <li>Unidad de medida: {{ object.unidad_de_medida }} </li>
+        <li>Cantidad: {{ object.cantidad }} </li>
+        <li>Precio: {{ object.precio }} </li>
+        <li>Descripción: {{ object.descripcion }} </li>
+        <li>Fecha de actualización: {{ object.fecha_actualizacion }} </li>
+    </ul>
+
+    <a href="{% url 'Home:home' %}">Ir al menú principal</a>
+    
+{% endblock INDEX_CONTENIDO %}
