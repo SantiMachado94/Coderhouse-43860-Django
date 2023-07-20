@@ -1,3 +1,5 @@
+{% load static %}
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container px-5">
         <a class="navbar-brand" href="#!">La Caja de Pandora</a>
@@ -10,6 +12,11 @@
                     <li class="nav-item"><a class="nav-link {% if request.path == "/cliente/" %} active  {% endif %}" href="{% url 'cliente:home' %}">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == "/producto/" %} active  {% endif %}" href="{% url 'producto:home' %}">Productos</a></li>
                     <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                    {% if user.vendedor.avatar.url %}
+                        <li class="nav-item"> <img src="{{ user.vendedor.avatar.url }}" alt="avatar" class="" style="height: 30px;"></li>
+                        {% else %}
+                        <li class="nav-item"> <img src="{% static 'venta/avatares.png' %}" alt="avatar" class="" style="height: 30px;"></li>
+                    {% endif %}
                     <li class="nav-item"><a class="nav-link text-info" href="{% url 'Home:logout' %}">Logout</a></li>
                 {% else %}
                     <li class="nav-item"><a class="nav-link {% if request.path == "/about/" %} active  {% endif %}" href="{% url 'Home:about' %}">Sobre nosotros</a></li>

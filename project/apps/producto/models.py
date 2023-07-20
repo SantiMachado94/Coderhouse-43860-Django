@@ -27,3 +27,6 @@ class Producto(models.Model):
     descripcion = models.CharField(max_length=250, null=True, blank=True)
     fecha_actualizacion = models.DateTimeField(
         default=timezone.now, editable=False, verbose_name="fecha de actualización")
+
+    def __str__(self) -> str:
+        return f"{self.nombre} {self.precio}"
